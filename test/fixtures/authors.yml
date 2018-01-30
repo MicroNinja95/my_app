@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fName: MyString
+  lName: MyString
+  genre: MyString
+  dobirth: 2018-01-22 09:13:26
+  dodeath: 2018-01-22 09:13:26
+
+two:
+  fName: MyString
+  lName: MyString
+  genre: MyString
+  dobirth: 2018-01-22 09:13:26
+  dodeath: 2018-01-22 09:13:26
