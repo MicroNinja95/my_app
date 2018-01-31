@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    @books = Bookk.find_by_id(1)
+    @books = Book.find_by_id(1)
   end
 
   def show
