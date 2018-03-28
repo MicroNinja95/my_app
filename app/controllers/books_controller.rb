@@ -1,10 +1,11 @@
 class BooksController < ApplicationController
-  def index
+  before_action :set_book, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @books = Book.all
   end
 
   def show
-    @book = Book.find(params[:id])
   end
 
   def new
@@ -14,15 +15,36 @@ class BooksController < ApplicationController
   def edit
   end
 
-  def create
-    @books = Book.new(book_params)
-
-    respond_to do |format|
-      if @books.save
-        format.haml { redirect_to @books, notice: 'Book was successfully created.' }
-      else
-        format.html.haml { render :new }
-      end
+  def update
+    if @book.update(book_params)
+      redirect_to @book, notice: 'Book was successfully updated.'
+    else
+      render :edit
     end
+  end
+
+  def destroy
+    if @book.destroy
+      redirect_to books_path, notice: 'Book was successfully destroyed.'
+    else
+      redirect_back
+    end
+  end
+
+  def create
+    @book = Book.new(book_params)
+    if @book.save
+      redirect_to @book, notice: 'Book was successfully created.'
+    else
+      render :new
+    end
+  end
+
+  private
+  def set_book
+    @book = Book.find(params[:id])
+  end
+  def book_params
+    params.require(:book).permit(:title, :price, :ISBN, :published)
   end
 end

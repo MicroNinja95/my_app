@@ -1,4 +1,24 @@
 %p#notice= notice
+
 %p
-  %strong Content: Titles:
-  = Book.find_by_id(1)
+  %b Title:
+  = @book.title
+%p
+  %b Price:
+  = @book.price
+-# %p
+-#   %b Category:
+-#   = @book.category
+-# %p
+-#   %b Publisher:
+-#   = @book.publisher
+%p
+  %b Publish date:
+  = @book.published
+%p
+  %b Isbn:
+  = @book.ISBN
+
+= link_to 'Edit', edit_book_path(@book)
+\|
+= link_to 'Back', books_path

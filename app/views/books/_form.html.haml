@@ -1,0 +1,28 @@
+= form_for @book do |form|
+  - if @book.errors.any?
+    #error_explanation
+      %h2="#{pluralize(@book.errors.count, "error")} This book can not be saved. :"
+      %ul
+      - @book.errors.full_messages.each do |message|
+        %li= message
+
+  .field
+    = form.label :title
+    = form.text_area :title
+  .field
+    = form.label :ISBN
+    = form.text_area :ISBN
+  -# .field
+  -#   = form.label :category_id
+  -#   = form.text_area :category_id
+  -# .field
+  -#   = form.label :publisher_id
+  -#   = form.text_area :publisher_id
+  .field
+    = form.label :price
+    = form.text_area :price
+  .field
+    = form.label :published
+    = form.date_select :published
+  .actions
+    = form.submit
