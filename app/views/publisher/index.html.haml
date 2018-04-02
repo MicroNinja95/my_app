@@ -1,0 +1,26 @@
+%h2 Listing of publishers
+
+%table
+  %thead
+    %tr
+      %th ID
+      %th Title
+      %th City
+      %th State
+
+  %tbody
+    - @publishers.each do |publisher|
+      %tr
+        %td= publisher.id
+        %td= publisher.title
+        %td= publisher.city
+        %td= publisher.state
+
+        %td= link_to 'Show', publisher
+        %td= link_to 'Edit', edit_publisher_path(publisher)
+        %td= link_to 'Destroy', publisher, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+= link_to 'New publisher', new_publisher_path
+
+%p PUBLISHER COUNT
+%p= @publishers.count

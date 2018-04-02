@@ -1,0 +1,31 @@
+%h2 Listing of Authors
+
+%table
+  %thead
+    %tr
+      %th ID
+      %th First Name
+      %th Last Name
+      %th Genre
+      %th Date of Birth
+      %th Date of Death
+
+
+  %tbody
+    - @authors.each do |author|
+      %tr
+        %td= author.id
+        %td= author.fName
+        %td= author.lName
+        %td= author.genre
+        %td= author.dobirth
+        %td= author.dodeath
+
+        %td= link_to 'Show', author
+        %td= link_to 'Edit', edit_author_path(author)
+        %td= link_to 'Destroy', author, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+= link_to 'New author', new_author_path
+
+%p AUTHOR COUNT
+%p= @authors.count

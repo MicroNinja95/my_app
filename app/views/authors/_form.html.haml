@@ -1,0 +1,25 @@
+= form_for @author do |form|
+  - if @author.errors.any?
+    #error_explanation
+      %h2="#{pluralize(@author.errors.count, "error")} This author can not be saved. :"
+      %ul
+      - @author.errors.full_messages.each do |message|
+        %li= message
+
+  .field
+    = form.label :fName
+    = form.text_area :fName
+  .field
+    = form.label :lName
+    = form.text_area :lName
+  .field
+    = form.label :genre
+    = form.text_area :genre
+  .field
+    = form.label :dobirth
+    = form.text_area :dobirth
+  .field
+    = form.label :dodeath
+    = form.text_area :dodeath
+  .actions
+    = form.submit

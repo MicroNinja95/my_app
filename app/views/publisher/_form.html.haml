@@ -1,0 +1,19 @@
+= form_for @publisher do |form|
+  - if @publisher.errors.any?
+    #error_explanation
+      %h2="#{pluralize(@publisher.errors.count, "error")} This publisher can not be saved. :"
+      %ul
+      - @publisher.errors.full_messages.each do |message|
+        %li= message
+
+  .field
+    = form.label :title
+    = form.text_area :title
+  .field
+    = form.label :city
+    = form.text_area :city
+  .field
+    = form.label :state
+    = form.text_area :state
+  .actions
+    = form.submit
