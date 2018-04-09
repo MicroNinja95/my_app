@@ -12,15 +12,18 @@
   .field
     = form.label :ISBN
     = form.text_area :ISBN
-  -# .field
-  -#   = form.label :category_id
-  -#   = form.text_area :category_id
-  -# .field
-  -#   = form.label :publisher_id
-  -#   = form.text_area :publisher_id
+  .field
+    = form.label :author_id
+    = form.collection_select :author_ids, Author.all, :id, :fName, {}, {multiple: true, class: 'chzn'}
   .field
     = form.label :price
-    = form.text_area :price
+    = form.text_field :price
+  .field
+    = form.label :category_id
+    = form.collection_select :category_id, Category.all, :id, :title, {}, {class: 'chzn'}
+  .field
+    = form.label :publisher_id
+    = form.collection_select :publisher_id, Publisher.all, :id, :title, {}, {class: 'chzn'}
   .field
     = form.label :published
     = form.date_select :published

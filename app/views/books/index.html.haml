@@ -17,11 +17,11 @@
       %tr
         %td= book.id
         %td= book.title
-        -# %td= book.authors.collect(&:full_name).to_sentence
+        %td= book.authors.collect(&:fName).to_sentence
         %td= book.price
-        -# %td= book.category
-        -# %td= book.publisher
-        -# %td= book.publish_date
+        %td= book.category
+        %td= book.publisher
+        %td= book.published
         %td= book.ISBN
         %td= link_to 'Show', book
         %td= link_to 'Edit', edit_book_path(book)
